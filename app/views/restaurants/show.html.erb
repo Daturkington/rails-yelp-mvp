@@ -24,8 +24,11 @@
 <%= link_to 'Back', restaurants_path %> |
 <%= link_to 'Add a review', new_restaurant_review_path(@restaurant) %>
 
+<p><strong>Reviews</strong></p>
 <ul>
   <% @restaurant.reviews.each do |review| %>
-    <li><%= review.content %> <%= link_to "(delete)", review_path(review), method: :delete %></li>
+    <li><%= review.content %> [<%= review.rating %>/5]
+      <br>
+    <%= link_to "(delete)", restaurant_path(review), method: :delete %></li>
   <% end %>
 </ul>
